@@ -4,13 +4,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 
 const SIDEBAR_ITEMS = [
-	{ name: "Overview", icon: BarChart2, color: "#6366f1", href: "/dashboard" },
-	{ name: "Retailer Management", icon: ShoppingBag, color: "#8B5CF6", href: "/products" },
-	{ name: "Group & Member Management", icon: Users, color: "#EC4899", href: "/users" },
-	{ name: "Loan Approval & Disbursement", icon: DollarSign, color: "#10B981", href: "/sales" },
-	{ name: "EMI & Collection Module", icon: ShoppingCart, color: "#F59E0B", href: "/orders" },
-	{ name: "Reports & Logs", icon: ClipboardPlus, color: "#3B82F6", href: "/report" },
-	{ name: "Support & Escalation", icon: TrendingUp, color: "#3B82F6", href: "/analytics" },
+	{ name: "User Management", icon: BarChart2, color: "#6366f1", href: "/dashboard" },
+	{ name: "Contest Management", icon: ShoppingBag, color: "#8B5CF6", href: "/products" },
+	{ name: "Team & Player Management", icon: Users, color: "#EC4899", href: "/users" },
+	{ name: "Wallet &Transaction", icon: DollarSign, color: "#10B981", href: "/sales" },
+	// { name: "EMI & Collection Module", icon: ShoppingCart, color: "#F59E0B", href: "/orders" },
+	// { name: "Reports & Logs", icon: ClipboardPlus, color: "#3B82F6", href: "/report" },
+	// { name: "Support & Escalation", icon: TrendingUp, color: "#3B82F6", href: "/analytics" },
 	{ name: "Settings", icon: Settings, color: "#6EE7B7", href: "/settings" },
 ];
 

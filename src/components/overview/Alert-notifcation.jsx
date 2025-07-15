@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Bell, X, Check, AlertTriangle, Info, Trash2, Eye, EyeOff } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import Header from "../components/common/Header";
 import { toast } from "react-toastify";
+import Header from "../common/Header";
 
 const AlertNotifications = () => {
   const [notifications, setNotifications] = useState([]);
@@ -222,10 +222,10 @@ const AlertNotifications = () => {
 
   return (
     <div className="flex-1 overflow-auto relative z-10">
-      <Header title="Alerts & Notifications" />
+      {/* <Header title="Alerts & Notifications" /> */}
       <main className="max-w-7xl mx-auto py-6 px-4 lg:px-8">
         
-        {/* Stats Cards */}
+        {/* Stats Cards
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <motion.div
             className="bg-gray-800 bg-opacity-60 backdrop-blur-md rounded-xl p-6 border border-gray-700"
@@ -288,7 +288,7 @@ const AlertNotifications = () => {
               </div>
             </div>
           </motion.div>
-        </div>
+        </div> */}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           

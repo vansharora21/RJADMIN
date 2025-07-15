@@ -16,7 +16,7 @@ const orderStats = {
 const OrdersPage = () => {
 	return (
 		<div className='flex-1 relative z-10 overflow-auto'>
-			<Header title={"EMI & Collection Module"} />
+			<Header title={""} />
 
 			<main className='max-w-7xl mx-auto py-6 px-4 lg:px-8'>
 				<motion.div
