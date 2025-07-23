@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import backgroundimg from './backimg.png';
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -9,6 +10,8 @@ export default function LoginPage() {
     password: ''
   });
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [remember, setRemember] = useState(false);
 
   const handleInputChange = (e) => {
     setFormData({
@@ -28,125 +31,104 @@ export default function LoginPage() {
   };
 
   return (
-    <>
-      <div style={{ marginLeft: "14rem" }}>
-        <div className="min-h-screen flex items-center justify-center bg-[#0f172a] py-12">
-          <div className="w-full max-w-7xl flex flex-col md:flex-row bg-[#1e293b] rounded-3xl overflow-hidden shadow-2xl">
+    <div
+      className="min-h-screen flex items-center justify-center"
+      style={{
+        backgroundImage: `url(${backgroundimg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        width: '100%'
+      }}
+    >
+      <div className="bg-black bg-opacity-70 rounded-xl shadow-lg p-8 flex flex-col items-center">
+        <h2 className="text-white text-3xl font-semibold mb-3 text-center">logo</h2>
+        <div className="text-gray-400 mb-3 w-full text-center"></div>
 
-            {/* Left Side - Login Form */}
-            <div className="w-full md:w-1/2 p-12 flex flex-col justify-center">
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="w-full max-w-lg mx-auto"
-              >
-                <div className="text-center mb-8">
-                  <h1 className="text-4xl font-bold text-white mb-2">
-                    Welcome Back
-                  </h1>
-                  <h2 className="text-2xl text-blue-500 font-semibold">
-                    <span className="text-green-400">Bet</span>Zone Pro
-                  </h2>
-                  <p className="text-gray-400 mt-2">
-                    Sign in to access your betting dashboard
-                  </p>
-                </div>
-
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label className="block text-gray-300 mb-2">Email</label>
-                    <input
-                      type="email"
-                      name="email"
-                      className="w-full rounded-xl bg-[#0f172a] text-white border border-gray-600 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-300 mb-2">Password</label>
-                    <input
-                      type="password"
-                      name="password"
-                      className="w-full rounded-xl bg-[#0f172a] text-white border border-gray-600 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      value={formData.password}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-                  <div className="text-right text-sm text-gray-400">
-                    <a href="#" className="hover:underline">Forgot Password?</a>
-                  </div>
-                  <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                    <button
-                      type="submit"
-                      className="w-full bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold py-3 px-4 rounded-xl transition duration-300 hover:from-blue-600 hover:to-green-600 flex justify-center items-center"
-                      disabled={loading}
-                    >
-                      {loading ? (
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                      ) : (
-                        "Sign In"
-                      )}
-                    </button>
-                  </motion.div>
-                </form>
-                <p className="text-xs text-gray-500 mt-6 text-center">
-                  By continuing, you agree to our <a href="#" className="underline text-blue-400">Terms & Conditions</a> and <a href="#" className="underline text-blue-400">Privacy Policy</a>.
-                </p>
-              </motion.div>
-            </div>
-
-            {/* Right Side - Betting Info */}
-            <div className="hidden md:flex w-1/2 bg-[#0f172a] items-center justify-center relative p-12">
-              <div className="text-center">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6 }}
-                  className="mb-8"
-                >
-                  <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                    {/* Betting Icon */}
-                    <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/>
-                      <circle cx="10" cy="14" r="5" fill="#34D399" />
-                    </svg>
-                  </div>
-                  <h3 className="text-3xl font-bold text-white mb-4">
-                    Fast & Secure Betting
-                  </h3>
-                  <p className="text-gray-300 text-lg mb-6">
-                    Bet on your favorite sports with live odds & instant payouts
-                  </p>
-                </motion.div>
-                <div className="space-y-4 text-left">
-                  <div className="flex items-center text-gray-300">
-                    <div className="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
-                    <span>Instant deposits & withdrawals</span>
-                  </div>
-                  <div className="flex items-center text-gray-300">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
-                    <span>Best odds guaranteed</span>
-                  </div>
-                  <div className="flex items-center text-gray-300">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full mr-3"></div>
-                    <span>Wide range of sports & events</span>
-                  </div>
-                  <div className="flex items-center text-gray-300">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div>
-                    <span>24/7 support for bettors</span>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute bg-blue-500 rounded-full w-40 h-40 top-10 right-10 opacity-10 -z-10"></div>
-              <div className="absolute bg-green-400 rounded-full w-32 h-32 bottom-10 left-10 opacity-10 -z-10"></div>
-            </div>
+        <form
+          className="w-full max-w-md mx-auto bg-gradient-to-br from-gray-900/80 to-gray-800/80 shadow-2xl rounded-xl p-8 border border-gray-700"
+          onSubmit={handleSubmit}
+        >
+          <div className="mb-6 relative">
+            <input
+              name="email"
+              type="email"
+              placeholder="Email"
+              className="w-full rounded-lg bg-gray-800/80 px-4 py-3 text-white border border-gray-600 focus:border-orange-400 focus:ring-2 focus:ring-orange-400 placeholder-gray-400 transition text-lg outline-none"
+              value={formData.email}
+              onChange={handleInputChange}
+              autoComplete="username"
+              required
+            />
           </div>
-        </div>
+
+          <div className="mb-6 relative">
+            <input
+              name="password"
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              className="w-full rounded-lg bg-gray-800/80 px-4 py-3 text-white border border-gray-600 focus:border-orange-400 focus:ring-2 focus:ring-orange-400 placeholder-gray-400 pr-12 transition text-lg outline-none"
+              value={formData.password}
+              onChange={handleInputChange}
+              autoComplete="current-password"
+              required
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              aria-label={showPassword ? "Hide password" : "Show password"}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-orange-400 hover:text-orange-500 transition focus:outline-none"
+              tabIndex={-1}
+            >
+              {showPassword ? (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round"
+                    d="M13.875 18.825A10.05 10.05 0 0112 19c-5.523 0-10-7-10-7a19.608 19.608 0 015.515-4.241M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round"
+                    d="M3 3l18 18" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              )}
+            </button>
+          </div>
+
+          <div className="flex items-center justify-between mb-6">
+            <label className="flex items-center text-gray-300 text-sm cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={remember}
+                onChange={() => setRemember(!remember)}
+                className="form-checkbox accent-orange-500 mr-2"
+              />
+              Remember Me
+            </label>
+            <a href="#" className="text-xs text-orange-400 hover:underline transition">
+              Forgot password?
+            </a>
+          </div>
+
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-gradient-to-r from-orange-500 to-orange-400 hover:from-orange-600 hover:to-orange-500 text-white font-semibold rounded-lg py-3 mb-1 shadow-lg transition-all flex items-center justify-center focus:outline-none disabled:opacity-60"
+            >
+              {loading ? (
+                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+              ) : (
+                <>Login</>
+              )}
+            </button>
+          </motion.div>
+        </form>
       </div>
-    </>
+    </div>
   );
 }
