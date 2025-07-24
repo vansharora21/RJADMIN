@@ -5,8 +5,8 @@ import Sidebar from "./components/common/Sidebar";
 import OverviewPage from "./pages/OverviewPage";
 import Gamesmanagement from "./pages/Contest";
 import UsersPage from "./pages/UsersPage";
-import SalesPage from "./pages/SalesPage";
-import OrdersPage from "./pages/OrdersPage";
+import SalesPage from "./pages/wallet";
+
 import SettingsPage from "./pages/SettingsPage";
 import LoginPage from "./pages/Login-Page";
 import ReportsAndLogs from "./pages/Report";
@@ -41,8 +41,8 @@ function App() {
         <Route path='/dashboard' element={<ProtectedRoute><OverviewPage /></ProtectedRoute>} />
         <Route path='/games' element={<ProtectedRoute><Gamesmanagement /></ProtectedRoute>} />
         <Route path='/users' element={<ProtectedRoute><UsersPage /></ProtectedRoute>} />
-        <Route path='/sales' element={<ProtectedRoute><SalesPage /></ProtectedRoute>} />
-        <Route path='/orders' element={<ProtectedRoute><OrdersPage /></ProtectedRoute>} />
+        <Route path='/wallet' element={<ProtectedRoute><SalesPage /></ProtectedRoute>} />
+        {/* <Route path='/orders' element={<ProtectedRoute><OrdersPage /></ProtectedRoute>} /> */}
         {/* <Route path='/analytics' element={<ProtectedRoute><AnalyticsPage /></ProtectedRoute>} /> */}
         <Route path='/report' element={<ProtectedRoute><ReportsAndLogs/></ProtectedRoute>} />
         <Route path='/settings' element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />

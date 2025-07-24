@@ -1,5 +1,5 @@
 import Header from "../components/common/Header";
-import ProductsTable from "../components/products/ProductsTable";
+import ProductsTable from "../components/contest/contestable";
 
 const Gamesmanagement = () => {
 	return (
